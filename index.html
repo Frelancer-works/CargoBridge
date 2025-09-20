@@ -1,0 +1,860 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Доставка грузов из Китая | CargoBridge</title>
+  <meta name="description" content="Доставка грузов из Китая в Россию: авто, ЖД, авиа. Консолидация, растаможка, страхование. Быстрая заявка и расчёт." />
+  <meta name="theme-color" content="#0b1c2f" />
+  <link rel="preconnect" href="/" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚚</text></svg>">
+  <link rel="preload" as="image" href="/img/hero-cargo.webp" imagesrcset="/img/hero-cargo.webp 1920w, /img/hero-cargo-1280.webp 1280w" imagesizes="(max-width: 960px) 100vw, 50vw">
+  <meta property="og:title" content="Доставка грузов из Китая | CargoBridge">
+  <meta property="og:description" content="Авто, ЖД, авиа. Быстрый расчёт и заявка.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/">
+  <meta property="og:image" content="https://example.com/og.jpg">
+  <style>
+    :root {
+      /* Базовая типографика: 1rem = 10px для удобства расчётов */
+      font-size: 62.5%;
+      --bg: #0b1c2f;
+      --bg-2: #0f233a;
+      --text: #0e1621;
+      --muted: #6b7b8f;
+      --brand: #2aa56b;
+      --brand-2: #1b8a57;
+      --accent: #ffd166;
+      --white: #ffffff;
+      --card: #f7f9fc;
+      --shadow: 0 0.8rem 2.4rem rgba(0,0,0,.08);
+      --radius: 1.6rem;
+      --radius-sm: .8rem;
+      --maxw: 118rem;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font: 400 1.6rem/1.6 "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: #fff;
+      overflow-x: hidden;
+    }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: var(--maxw); margin: 0 auto; padding: 0 2rem; }
+
+    /* Header */
+    header {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(255,255,255,.9); backdrop-filter: saturate(140%) blur(8px);
+      border-bottom: 1px solid #e8eef6;
+    }
+    .nav {
+      display: flex; align-items: center; gap: 2rem;
+      min-height: 6.4rem;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 1.2rem; font-weight: 700; font-size: 1.8rem;
+    }
+    .brand-badge {
+      display: inline-grid; place-items: center;
+      width: 3.2rem; height: 3.2rem; border-radius: 50%;
+      background: var(--brand); color: #fff; font-size: 1.8rem;
+      box-shadow: var(--shadow);
+    }
+    .nav-links { display: flex; gap: 1.6rem; margin-left: auto; }
+    .nav-links a { color: var(--text); font-weight: 600; }
+    .cta {
+      display: inline-flex; align-items: center; justify-content: center; gap: .8rem;
+      padding: 1.2rem 2rem; border-radius: 999rem;
+      background: var(--brand); color: var(--white); border: 0; cursor: pointer;
+      box-shadow: 0 .6rem 1.6rem rgba(42,165,107,.28); font-weight: 700;
+    }
+    .cta:hover { background: var(--brand-2); }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(140deg, var(--bg) 0%, var(--bg-2) 100%);
+      color: #e8f2ff; padding: 6.4rem 0 4.8rem; position: relative; overflow: hidden;
+      padding: 0 10rem; 
+    }
+    .hero .wrap {
+      display: grid; grid-template-columns: 1.5fr 1.5fr; gap: 10rem; justify-content: center;
+      max-width: var(--maxw); margin: 0 auto; 
+    }
+    .hero h1 {
+      margin: 0 0 1.6rem; font-size: 4rem; line-height: 1.2; color: #fff;
+      letter-spacing: .01em;
+    }
+    .hero p { margin: 0 0 2.4rem; color: #c9d7e9; font-size: 1.8rem; }
+    .hero .card {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      padding: 2rem; border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .grid-2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.2rem; }
+    .input, select, textarea {
+      width: 100%; padding: 1.2rem 1.4rem; border-radius: .8rem; border: 1px solid #dce6f1; background: #fff;
+      font: inherit;
+    }
+    .input:focus, select:focus, textarea:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 .4rem rgba(42,165,107,.12); }
+    .muted { color: #a9b8c9; font-size: 1.4rem; }
+    .check { display: flex; gap: 1rem; align-items: flex-start; font-size: 1.4rem; color: #bcd0e8; }
+    .check input { margin-top: .3rem; }
+
+    /* Sections */
+    section { padding: 5.6rem 0; }
+    .section-title { font-size: 3rem; margin: 0 0 1.2rem; }
+    .section-sub { color: var(--muted); margin: 0 0 2.4rem; }
+
+    /* Cards */
+    .cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; }
+    .card {
+      background: var(--card); border: 1px solid #e8eef6; border-radius: var(--radius);
+      box-shadow: var(--shadow); padding: 2rem;
+    }
+    .card h3 { margin: 0 0 .8rem; font-size: 2rem; }
+    .card p { margin: 0; color: var(--muted); }
+
+    /* Steps */
+    .steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 2rem; counter-reset: step; }
+    .step {
+      background: #fff; border: 1px solid #e8eef6; border-radius: var(--radius);
+      padding: 2rem; box-shadow: var(--shadow); position: relative;
+    }
+    .step::before {
+      counter-increment: step; content: counter(step);
+      position: absolute; top: 1.6rem; right: 1.6rem;
+      width: 3.2rem; height: 3.2rem; display: grid; place-items: center;
+      border-radius: 50%; background: var(--brand); color: #fff; font-weight: 700;
+      box-shadow: 0 .4rem 1.2rem rgba(42,165,107,.25);
+    }
+
+    /* FAQ */
+    .faq { max-width: 90rem; }
+    details {
+      background: #fff; border: 1px solid #e8eef6; border-radius: 1.2rem; padding: 1.6rem 2rem;
+    }
+    details + details { margin-top: 1.2rem; }
+    summary { cursor: pointer; font-weight: 700; }
+    details[open] { border-color: var(--brand); }
+
+    /* Contacts */
+    .contacts {
+      display: grid; grid-template-columns: .8fr 1.2fr; gap: 2rem; align-items: start;
+    }
+
+    /* Footer */
+    footer { background: #0f1722; color: #c9d7e9; padding: 3.2rem 0; }
+    footer a { color: #fff; }
+
+    /* Chatbot */
+    .bot {
+      position: fixed; right: 2rem; bottom: 2rem; z-index: 40;
+    }
+    .bot-toggle {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 5.2rem; height: 5.2rem; border-radius: 50%; border: 0; cursor: pointer;
+      background: var(--brand); color: #fff; font-size: 2.2rem; box-shadow: var(--shadow);
+    }
+    .bot-panel {
+      position: absolute; right: 0; bottom: 6.4rem; width: min(36rem, 90vw);
+      background: #fff; border: 1px solid #e8eef6; border-radius: 1.2rem; box-shadow: var(--shadow);
+      display: none; overflow: hidden;
+    }
+    .bot-panel.active { display: grid; grid-template-rows: 1fr auto; }
+    .bot-head { background: var(--bg-2); color: #fff; padding: 1.2rem 1.6rem; font-weight: 700; }
+    .bot-messages { padding: 1.2rem; max-height: 42rem; overflow: auto; }
+    .msg { display: inline-block; padding: 1rem 1.4rem; border-radius: 1.2rem; margin: .6rem 0; max-width: 85%; }
+    .msg.user { background: #e8f2ff; color: #0b1c2f; border: 1px solid #d4e5ff; }
+    .msg.bot { background: #f3f8f5; border: 1px solid #e0f1e8; }
+    .bot-input {
+      display: grid; grid-template-columns: 1fr auto; gap: .8rem; padding: 1rem; border-top: 1px solid #e8eef6; background: #fafcff;
+    }
+    .bot-input input { padding: 1rem 1.2rem; border-radius: .8rem; border: 1px solid #dce6f1; }
+    .quick { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: .6rem; }
+    .quick button {
+      border: 1px solid #dce6f1; background: #fff; padding: .6rem 1rem; border-radius: 999rem; cursor: pointer; font-size: 1.4rem;
+    }
+    .quick button:hover { border-color: var(--brand); color: var(--brand); }
+
+    /* Responsive */
+    @media (max-width: 920px) {
+      .hero .wrap { grid-template-columns: 1fr; }
+      .cards { grid-template-columns: 1fr 1fr; }
+      .steps { grid-template-columns: 1fr 1fr; }
+      .contacts { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .cards { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .hero h1 { font-size: 3.2rem; }
+    }
+
+    /* === Calculator === */
+.calc {
+  background: var(--card);
+  border: 1px solid #e8eef6;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2rem;
+}
+.calc-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 1.2rem;
+}
+.calc-result {
+  margin-top: 1.2rem;
+  padding: 1.2rem 1.4rem;
+  border-radius: .8rem;
+  background: #fff;
+  border: 1px solid #e8eef6;
+  font-weight: 600;
+}
+.calc .muted { font-size: 1.3rem; }
+
+/* === Directions showcase === */
+.routes {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 2rem;
+}
+.route-card {
+  background: #fff;
+  border: 1px solid #e8eef6;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.6rem;
+  display: grid;
+  gap: 1rem;
+}
+.route-head { display:flex; justify-content:space-between; align-items:center; gap:1rem; }
+.route-head h3 { margin:0; font-size: 2rem; }
+.badge {
+  display:inline-flex; align-items:center; justify-content:center;
+  padding: .4rem .8rem; border-radius: 999rem; font-size: 1.2rem;
+  border: 1px solid #dce6f1; color: var(--muted);
+}
+.mapbox {
+  position: relative; aspect-ratio: 16/9; overflow: hidden;
+  border-radius: 1.2rem; border: 1px solid #e8eef6; background: #eef4fb;
+}
+.mapbg {
+  position:absolute; inset:0; width:100%; height:100%;
+  background-image: radial-gradient(60% 60% at 20% 60%, #d7ecff 0%, #eef4fb 70%), radial-gradient(40% 60% at 80% 40%, #e6fff2 0%, #eef4fb 70%);
+  opacity:.8;
+}
+.marker {
+  position:absolute; width: 1.2rem; height: 1.2rem; border-radius: 50%;
+  background: var(--brand); box-shadow: 0 0 0 .4rem rgba(42,165,107,.18);
+  transform: translate(-50%,-50%);
+}
+.marker::after {
+  content: attr(data-title); position: absolute; top: -2.2rem; left: 50%;
+  transform: translateX(-50%); background: #fff; border: 1px solid #e8eef6;
+  border-radius: .6rem; padding: .2rem .6rem; font-size: 1.2rem; color: var(--text);
+  white-space: nowrap;
+}
+.route-actions { display:flex; gap:.8rem; flex-wrap:wrap; }
+
+/* === Floating IM buttons === */
+.im-fab {
+  position: fixed; left: 2rem; bottom: 2rem; z-index: 50; display: grid; gap: .8rem;
+}
+.im-fab a {
+  display:inline-flex; align-items:center; justify-content:center; gap:.6rem;
+  padding: 1rem 1.2rem; border-radius: 999rem; background:#25D366; color:#fff; font-weight:700;
+  border: 0; box-shadow: var(--shadow);
+}
+.im-fab a.tg { background:#28A0F0; }
+
+/* Responsive add-ons */
+@media (max-width: 1024px) {
+  .calc-grid { grid-template-columns: 1fr 1fr; }
+  .routes { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .calc-grid { grid-template-columns: 1fr; }
+  .routes { grid-template-columns: 1fr; }
+}
+/* === Media === */
+.media {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid #e8eef6;
+  box-shadow: var(--shadow);
+}
+.media img { display:block; width:100%; height:auto; }
+
+/*#leadForm {
+  max-width: 50%;
+}*/
+.hero-ill {
+  position: relative; isolation: isolate;max-width: 50%;display: block; margin: 0 auto; padding-bottom: 2rem;
+}
+.hero-ill .bg{
+  position:absolute; inset:-2rem -2rem -2rem -2rem; z-index:0; opacity:.18;
+  filter: saturate(110%) contrast(105%);
+  
+}
+.bg{
+  display: block;
+  margin: 0 auto;
+}
+.hero-ill .fg { position:relative; z-index:1; }
+
+/* Icons */
+.icon {
+  inline-size: 2.4rem; block-size: 2.4rem; flex:0 0 2.4rem; color: var(--brand);
+}
+.card .card-head { display:flex; gap:1rem; align-items:center; margin-bottom:.4rem; }
+
+/* Gallery */
+.gallery { display:grid; grid-template-columns: repeat(4, 1fr); gap:1.2rem; }
+.gallery a { display:block; }
+.gallery img { width:100%; height:auto; border-radius: 1.2rem; border:1px solid #e8eef6; box-shadow: var(--shadow); }
+@media (max-width: 1024px){ .gallery { grid-template-columns: repeat(3,1fr);} }
+@media (max-width: 640px){ .gallery { grid-template-columns: repeat(2,1fr);} }
+
+/* Step thumbs */
+.step .thumb { margin:.8rem 0 0; border:1px solid #e8eef6; border-radius: .8rem; overflow:hidden; }
+.step .thumb img { width:100%; height:auto; display:block; }
+
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"CargoBridge",
+    "url":"https://example.com/",
+    "logo":"https://example.com/logo.svg",
+    "sameAs":[]
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <span class="brand-badge">🚚</span>
+        CargoBridge
+      </div>
+      <nav class="nav-links">
+        <a href="about.html">О компании</a>
+        <a href="warehouse.html">Склад в Китае</a>
+        <a href="docs.html">Документы</a>      
+        <a href="#services">Услуги</a>
+        <a href="#steps">Как работаем</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <button class="cta" onclick="document.getElementById('leadForm').scrollIntoView({behavior:'smooth'});">Рассчитать доставку</button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">   
+    <div class="container wrap">   
+      </div>        
+        <img class="bg" src="/img/svc-truck.webp" width="75%" height=650px" alt="" decoding="async" fetchpriority="high" >
+        <h1 style="text-align: center;">Доставка грузов из Китая в Россию — быстро и безопасно</h1>
+        <p style="text-align: center;">Авто, ЖД и авиа. Консолидация на складе в Китае, таможенное оформление, страхование. Получите персональный
+          расчёт за 10 минут.</p>
+        <div class="muted" style="text-align: center; padding-bottom: 2rem;">Работаем с коммерческими и частными грузами. Комплект документов под ключ.</div>
+      </div>  
+      <div class="hero-ill">           
+        <div class="card fg">          
+          <form id="leadForm" action="submit.php" method="post" novalidate>
+            <div class="grid-2">
+              <div><input class="input" name="name" placeholder="Ваше имя" required></div>
+              <div><input class="input" name="phone" placeholder="Телефон (WhatsApp/Telegram)" required></div>
+            </div>
+            <div class="grid-2" style="margin-top:1.2rem">
+              <div>
+                <select name="route" class="input" required>
+                  <option value="" selected disabled>Маршрут</option>
+                  <option>Китай → Москва</option>
+                  <option>Китай → СПб</option>
+                  <option>Китай → любой регион РФ</option>
+                </select>
+              </div>
+              <div>
+                <select name="mode" class="input" required>
+                  <option value="" selected disabled>Тип доставки</option>
+                  <option>Авто</option>
+                  <option>ЖД</option>
+                  <option>Авиа</option>
+                  <option>Сборный груз</option>
+                </select>
+              </div>
+            </div>
+            <div style="margin-top:1.2rem">
+              <textarea class="input" name="cargo" rows="3"
+                placeholder="Опишите груз: вес (кг), объём (м³), характер, Инкотермс, откуда забрать"></textarea>
+            </div>
+            <label class="check" style="margin-top:1.2rem">
+              <input type="checkbox" name="consent" required>
+              <span>Согласен на обработку персональных данных и получение обратной связи</span>
+            </label>
+            <button class="cta" type="submit" style="margin-top:1.2rem;width:100%">Отправить заявку</button>
+            <div id="leadStatus" class="muted" style="margin-top:1rem"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- УСЛУГИ -->
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title">Наши услуги</h2>
+      <p class="section-sub">Полный цикл логистики: от забора груза на фабрике до выдачи на вашем складе.</p>
+      <div class="card">
+  <div class="card-head">
+    <svg class="icon"><use href="#i-truck"/></svg>
+    <h3 style="margin:0">Автодоставка</h3>
+  </div>
+  <div class="media" style="margin:.8rem 0 1rem">
+    <img src="/img/svcc-truck.webp" width="180px" height="70px" loading="lazy" alt="Автодоставка — магистральный трейлер на погрузке">
+  </div>
+  <p>Сроки от 10–20 дней...</p>
+</div>
+
+<div class="card">
+  <div class="card-head">
+    <svg class="icon"><use href="#i-rail"/></svg>
+    <h3 style="margin:0">ЖД доставка</h3>
+  </div>
+  <div class="media" style="margin:.8rem 0 1rem">
+    <img src="/img/svc-rail.webp" width="1280" height="720" loading="lazy" alt="Железнодорожная платформа с контейнерами">
+  </div>
+  <p>Оптимально для средних и крупных партий...</p>
+</div>
+
+<div class="card">
+  <div class="card-head">
+    <svg class="icon"><use href="#i-air"/></svg>
+    <h3 style="margin:0">Авиа</h3>
+  </div>
+  <div class="media" style="margin:.8rem 0 1rem">
+    <img src="/img/svc-air.webp" width="1280" height="720" loading="lazy" alt="Грузовой самолёт на перроне">
+  </div>
+  <p>Самый быстрый канал...</p>
+</div>
+
+    </div>
+  </section>
+
+  <!-- ЭТАПЫ -->
+  <section id="steps">
+    <div class="container">
+      <h2 class="section-title">Как мы работаем</h2>
+      <p class="section-sub">Прозрачно на каждом шаге — вы видите статус и сроки.</p>
+      <div class="steps">
+        <div class="step">
+          <h3>Заявка и расчёт</h3>
+          <p>Получаем параметры груза, предлагаем оптимальный канал и сроки.</p>
+        </div>
+        <div class="step">
+          <h3>Забор и консолидация</h3>
+          <p>Забираем с фабрики/склада, объединяем партии, готовим к отправке.</p>
+        </div>
+        <div class="step">
+          <h3>Перевозка и таможня</h3>
+          <p>Следим за маршрутом, оформляем документы, информируем о статусе.</p>
+        </div>
+        <div class="step">
+          <h3>Выдача и отчёт</h3>
+          <p>Доставка «до двери», фото-отчёт, закрывающие документы.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <h2 class="section-title">FAQ — частые вопросы</h2>
+      <div class="faq">
+        <details>
+          <summary>Какие базовые сроки доставки?</summary>
+          <p>Авто: ~10–20 дней, ЖД: ~14–28 дней, Авиа: ~3–7 дней. Точный срок зависит от города отправления/назначения и типа груза.</p>
+        </details>
+        <details>
+          <summary>Как считается стоимость?</summary>
+          <p>Для авто/ЖД — по весу/объёму (кг/м³) с учётом тарифа, для авиа — по фактическому/объёмному весу. Финальный расчёт после параметров и маршрута.</p>
+        </details>
+        <details>
+          <summary>Можно ли забрать груз у поставщика?</summary>
+          <p>Да, организуем забор по Китаю, консолидацию, фото-контроль и маркировку.</p>
+        </details>
+        <details>
+          <summary>Поможете с таможней и документами?</summary>
+          <p>Да, подскажем коды ТН ВЭД, подготовим декларацию, организуем сертификацию при необходимости.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Сalculator -->
+  <section id="calculator">
+  <div class="container">
+    <h2 class="section-title">Калькулятор стоимости</h2>
+    <p class="section-sub">Черновой расчёт по базовой формуле (для ориентира). Точный расчёт пришлём после заявки.</p>
+    <div class="calc">
+      <form id="calcForm" class="calc-grid" autocomplete="off">
+        <div>
+          <label class="muted">Маршрут</label>
+          <select class="input" name="route" required>
+            <option value="" disabled selected>Выберите</option>
+            <option value="cn-msk">Китай → Москва</option>
+            <option value="cn-spb">Китай → Санкт-Петербург</option>
+            <option value="cn-rf">Китай → регионы РФ</option>
+          </select>
+        </div>
+        <div>
+          <label class="muted">Тип доставки</label>
+          <select class="input" name="mode" required>
+            <option value="" disabled selected>Выберите</option>
+            <option value="auto">Авто</option>
+            <option value="rail">ЖД</option>
+            <option value="air">Авиа</option>
+          </select>
+        </div>
+        <div>
+          <label class="muted">Вес, кг</label>
+          <input class="input" type="number" name="kg" min="0" step="0.01" placeholder="Напр. 1200" required>
+        </div>
+        <div>
+          <label class="muted">Объём, м³</label>
+          <input class="input" type="number" name="cbm" min="0" step="0.001" placeholder="Напр. 6.2" required>
+        </div>
+      </form>
+      <div id="calcResult" class="calc-result">Введите параметры для расчёта…</div>
+      <div class="muted">Формула-заглушка: <strong>цена = базовый тариф × max(вес, объём × 167)</strong> с поправками по направлению.</div>
+      <div style="display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1rem">
+        <button class="cta" id="calcSubmit">Оставить заявку на точный расчёт</button>
+        <button class="cta" type="button" onclick="document.getElementById('leadForm').scrollIntoView({behavior:'smooth'})">Заполнить форму</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Routes cart -->
+<section id="routes">
+  <div class="container">
+    <h2 class="section-title">Популярные направления</h2>
+    <p class="section-sub">Часто возим в эти города. Маркеры на карте — условные для демонстрации.</p>
+
+    <div class="routes">
+      <!-- Карточка 1 -->
+      <div class="route-card">
+        <div class="route-head">
+          <h3>Китай → Москва</h3>
+          <span class="badge">Авто / ЖД / Авиа</span>
+        </div>
+        <div class="mapbox">
+          <div class="mapbg"></div>
+          <!-- Условные маркеры: «примерные» позиции внутри блока -->
+          <span class="marker" data-title="Гуанчжоу" style="left:28%; top:58%"></span>
+          <span class="marker" data-title="Москва" style="left:72%; top:42%"></span>
+        </div>
+        <p class="muted">Сроки: авто ~10–20 дн., ЖД ~14–28 дн., авиа ~3–7 дн.</p>
+        <div class="route-actions">
+          <a class="cta" href="#calculator">Рассчитать</a>
+          <a class="cta" href="https://wa.me/79990000000?text=Здравствуйте!%20Нужен%20расчёт%20Китай→Москва" target="_blank" rel="noopener">Написать в WhatsApp</a>
+          <a class="cta" href="https://t.me/your_channel" target="_blank" rel="noopener">Telegram</a>
+        </div>
+      </div>
+
+      <!-- Карточка 2 -->
+      <div class="route-card">
+        <div class="route-head">
+          <h3>Китай → Санкт-Петербург</h3>
+          <span class="badge">Авто / ЖД / Авиа</span>
+        </div>
+        <div class="mapbox">
+          <div class="mapbg"></div>
+          <span class="marker" data-title="Шэньчжэнь" style="left:30%; top:62%"></span>
+          <span class="marker" data-title="СПб" style="left:69%; top:35%"></span>
+        </div>
+        <p class="muted">Сроки аналогичны, уточняем по партии.</p>
+        <div class="route-actions">
+          <a class="cta" href="#calculator">Рассчитать</a>
+          <a class="cta" href="https://wa.me/79990000000?text=Здравствуйте!%20Нужен%20расчёт%20Китай→СПб" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="cta" href="https://t.me/your_channel" target="_blank" rel="noopener">Telegram</a>
+        </div>
+      </div>
+
+      <!-- Карточка 3 -->
+      <div class="route-card">
+        <div class="route-head">
+          <h3>Китай → Любой регион РФ</h3>
+          <span class="badge">Авто / ЖД / Авиа</span>
+        </div>
+        <div class="mapbox">
+          <div class="mapbg"></div>
+          <span class="marker" data-title="Иу" style="left:36%; top:54%"></span>
+          <span class="marker" data-title="РФ" style="left:72%; top:48%"></span>
+        </div>
+        <p class="muted">Организуем «до двери» и транзит до ТК в вашем городе.</p>
+        <div class="route-actions">
+          <a class="cta" href="#calculator">Рассчитать</a>
+          <a class="cta" href="https://wa.me/79990000000?text=Здравствуйте!%20Нужен%20расчёт%20Китай→Регионы%20РФ" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="cta" href="https://t.me/your_channel" target="_blank" rel="noopener">Telegram</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- КОНТАКТЫ -->
+  <section id="contacts">
+    <div class="container contacts">
+      <div>
+        <h2 class="section-title">Контакты</h2>
+        <p class="section-sub">Ответим в мессенджерах и по телефону. Работаем ежедневно.</p>
+        <p><strong>Телефон:</strong> <a href="tel:+79990000000">+7 (999) 000-00-00</a><br>
+           <strong>WhatsApp:</strong> <a href="https://wa.me/79990000000" target="_blank" rel="noopener">написать</a><br>
+           <strong>Telegram:</strong> <a href="https://t.me/your_channel" target="_blank" rel="noopener">@your_channel</a><br>
+           <strong>Email:</strong> <a href="mailto:hello@example.com">hello@example.com</a></p>
+        <p class="muted">Адрес офиса/представительства: Москва, ул. Пример, 1</p>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0">Быстрый вопрос</h3>
+        <form id="contactForm" action="submit.php" method="post" novalidate>
+          <input class="input" name="name" placeholder="Имя" required style="margin-bottom:1rem">
+          <input class="input" name="phone" placeholder="Телефон или @аккаунт" required style="margin-bottom:1rem">
+          <textarea class="input" name="message" rows="4" placeholder="Ваш вопрос" required></textarea>
+          <label class="check" style="margin-top:1.2rem">
+            <input type="checkbox" name="consent" required>
+            <span>Согласен на обработку персональных данных</span>
+          </label>
+          <button class="cta" type="submit" style="margin-top:1.2rem">Отправить</button>
+          <div id="contactStatus" class="muted" style="margin-top:1rem"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap">
+      <div>© <span id="y"></span> CargoBridge</div>
+      <div><a href="#" onclick="alert('Политика конфиденциальности: добавьте свой текст.');return false;">Политика конфиденциальности</a></div>
+    </div>
+  </footer>
+
+  <!-- Чат-бот -->
+  <div class="bot" aria-live="polite">
+    <button class="bot-toggle" aria-label="Открыть чат-бота" id="botToggle">💬</button>
+    <div class="bot-panel" id="botPanel" aria-label="Чат-бот">
+      <div class="bot-head">Помощник CargoBridge</div>
+      <div class="bot-messages" id="botMessages"></div>
+      <div class="bot-input">
+        <div>
+          <input id="botInput" placeholder="Спросите: сроки, цена, таможня…" autocomplete="off" />
+          <div class="quick" id="botQuick"></div>
+        </div>
+        <button class="cta" id="botSend" style="padding:.8rem 1.6rem">Отправить</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Год в футере
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Плавный скролл для якорей
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); }
+      });
+    });
+
+    // Универсальная отправка форм (AJAX + fallback)
+    async function handleForm(formId, statusId, source){
+      const form = document.getElementById(formId);
+      const statusEl = document.getElementById(statusId);
+      form.addEventListener('submit', async (e)=>{
+        e.preventDefault();
+        statusEl.textContent = 'Отправляем…';
+        const fd = new FormData(form);
+        fd.append('source', source);
+        try {
+          const res = await fetch('submit.php', {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: fd
+          });
+          const data = await res.json();
+          if(data.ok){
+            statusEl.textContent = 'Спасибо! Мы свяжемся с вами в ближайшее время.';
+            form.reset();
+          } else {
+            statusEl.textContent = 'Ошибка: ' + (data.error || 'не удалось отправить.');
+          }
+        } catch(err){
+          statusEl.textContent = 'Сеть недоступна. Попробуйте позже.';
+        }
+      });
+    }
+    handleForm('leadForm','leadStatus','lead');
+    handleForm('contactForm','contactStatus','contact');
+
+    // Простой чат-бот
+    (function(){
+      const botToggle = document.getElementById('botToggle');
+      const botPanel = document.getElementById('botPanel');
+      const messages = document.getElementById('botMessages');
+      const input = document.getElementById('botInput');
+      const sendBtn = document.getElementById('botSend');
+      const quick = document.getElementById('botQuick');
+
+      const quickPhrases = ['Сроки авто','Сроки ЖД','Сроки авиа','Стоимость','Таможня','Документы','Забор в Китае'];
+      quickPhrases.forEach(q=>{
+        const b=document.createElement('button'); b.textContent=q; b.onclick=()=>{input.value=q; send();}; quick.appendChild(b);
+      });
+
+      function append(text, who='bot'){
+        const b = document.createElement('div');
+        b.className = 'msg ' + who;
+        b.textContent = text;
+        messages.appendChild(b);
+        messages.scrollTop = messages.scrollHeight;
+      }
+
+      const answers = [
+        { k:['срок','авто','машин','truck'], a:'Автодоставка обычно ~10–20 дней, зависит от провинции отправления и региона РФ.' },
+        { k:['срок','жд','поезд','rail'], a:'ЖД ~14–28 дней при стабильном графике поездов.' },
+        { k:['срок','авиа','самол'], a:'Авиа最快: ~3–7 дней «дверь-в-дверь» (зависит от аэропортов).' },
+        { k:['стоим','тариф','цена','сколько'], a:'Стоимость считаем по весу/объёму и маршруту. Напишите вес (кг), объём (м³) и город — подготовлю расчёт.' },
+        { k:['тамож','оформл','растамож'], a:'Поможем с кодами ТН ВЭД, декларацией и сертификацией — оформим под ключ.' },
+        { k:['документ','сертиф','серты'], a:'Подскажу по требуемым документам: инвойс, упаковочный лист, договор и пр.' },
+        { k:['забор','кита','pickup','забрать'], a:'Да, заберём груз у поставщика и сконсолидируем на складе.' },
+      ];
+
+      function reply(text){
+        const t = text.toLowerCase();
+        const hit = answers.find(r=>r.k.some(k=>t.includes(k)));
+        if(hit){ append(hit.a,'bot'); }
+        else {
+          append('Готов рассчитать стоимость и сроки. Укажите, пожалуйста: вес (кг), объём (м³), город отправления и назначения.','bot');
+        }
+      }
+
+      function send(){
+        const val = input.value.trim();
+        if(!val) return;
+        append(val,'user');
+        input.value = '';
+        setTimeout(()=>reply(val), 300);
+
+        // Если пользователь оставляет контакт — шлём лид
+        if(/@\w+|\+?\d[\d\-\s\(\)]{6,}/.test(val)){
+          const fd = new FormData();
+          fd.append('name','Чат-бот');
+          fd.append('phone', val);
+          fd.append('message','Контакт из чат-бота');
+          fd.append('source','chatbot');
+          fetch('submit.php', { method:'POST', body: fd });
+        }
+      }
+
+      botToggle.addEventListener('click', ()=>{
+        botPanel.classList.toggle('active');
+        if(botPanel.classList.contains('active') && messages.childElementCount===0){
+          append('Здравствуйте! Я помогу с расчётом. Спросите про сроки, стоимость или оставьте контакт — перезвоним.');
+        }
+      });
+      sendBtn.addEventListener('click', send);
+      input.addEventListener('keydown', e=>{ if(e.key==='Enter') send(); });
+    })();
+
+    // === КАЛЬКУЛЯТОР ===
+// Базовые тарифы (примерные), валюта условная
+const TARIFF = {
+  auto: { base: 0.85, name: 'Авто' }, // ₽/кг эквивалент (пример!)
+  rail: { base: 0.72, name: 'ЖД'  },
+  air:  { base: 3.20, name: 'Авиа'}
+};
+// Поправка по направлению
+const ROUTE_FACTOR = { 'cn-msk': 1.00, 'cn-spb': 1.05, 'cn-rf': 1.12 };
+
+const calcForm = document.getElementById('calcForm');
+const calcResult = document.getElementById('calcResult');
+const calcSubmit = document.getElementById('calcSubmit');
+
+function formatRub(x){
+  try {
+    return new Intl.NumberFormat('ru-RU', { style:'currency', currency:'RUB', maximumFractionDigits: 0 }).format(x);
+  } catch { return Math.round(x) + ' ₽'; }
+}
+
+function recalc(){
+  const fd = new FormData(calcForm);
+  const route = fd.get('route');
+  const mode = fd.get('mode');
+  const kg = parseFloat(fd.get('kg') || '0');
+  const cbm = parseFloat(fd.get('cbm') || '0');
+
+  if(!route || !mode || !(kg>0) || !(cbm>0)) {
+    calcResult.textContent = 'Введите параметры для расчёта…';
+    return;
+  }
+
+  // Объёмный вес авиа/авто/жд — упрощённо 1 м³ = 167 кг
+  const chargeable = Math.max(kg, cbm * 167);
+  const base = TARIFF[mode].base;
+  const routeK = ROUTE_FACTOR[route] || 1;
+
+  // Итог: базовый × тарифицируемый вес × поправка
+  let price = base * chargeable * routeK;
+
+  // Минимальная партия, наценка малых отправок (демо)
+  if (chargeable < 50) price *= 1.15;
+
+  calcResult.textContent = `Ориентировочно: ${formatRub(price)} (тарифицируемый вес: ${chargeable.toFixed(0)} кг, тип: ${TARIFF[mode].name})`;
+}
+calcForm.addEventListener('input', recalc);
+
+// Отправка лида с параметрами калькулятора
+calcSubmit.addEventListener('click', async ()=>{
+  const fd = new FormData(calcForm);
+  const route = fd.get('route'); const mode = fd.get('mode');
+  const kg = fd.get('kg'); const cbm = fd.get('cbm');
+
+  if(!route || !mode || !(parseFloat(kg)>0) || !(parseFloat(cbm)>0)){
+    alert('Заполните все параметры калькулятора.');
+    return;
+  }
+  // Вырезаем число из текста результата
+  const estimate = (calcResult.textContent || '').replace('Ориентировочно: ','');
+  const payload = new FormData();
+  payload.append('name','Калькулятор');
+  payload.append('phone','—'); // неизвестно
+  payload.append('message', `Запрос из калькулятора: маршрут=${route}, тип=${mode}, вес=${kg}кг, объём=${cbm}м³, оценка ${estimate}`);
+  payload.append('source','calculator');
+
+  try {
+    await fetch('submit.php', { method:'POST', body: payload });
+    alert('Готово! Мы получили параметры и отправим точный расчёт.');
+  } catch {
+    alert('Не удалось отправить. Попробуйте позже.');
+  }
+});
+
+  </script>
+
+  <div class="im-fab" aria-label="Быстрые контакты">
+  <a href="https://wa.me/79990000000?text=Здравствуйте!%20Хочу%20расчёт%20доставки" target="_blank" rel="noopener" aria-label="WhatsApp">WhatsApp</a>
+  <a class="tg" href="https://t.me/your_channel" target="_blank" rel="noopener" aria-label="Telegram">Telegram</a>
+</div>
+
+</body>
+</html>

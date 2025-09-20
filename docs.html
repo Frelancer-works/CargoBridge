@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Документы | CargoBridge</title>
+  <meta name="description" content="Список документов и требований для растаможки и перевозки: инвойс, упаковочный лист, договор, сертификаты." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📄</text></svg>">
+  <style>
+    :root { font-size:62.5%; --maxw:118rem; --text:#0e1621; --muted:#6b7b8f; --card:#f7f9fc; --brand:#2aa56b; --radius:1.6rem; --shadow:0 .8rem 2.4rem rgba(0,0,0,.08);}
+    body{margin:0;font:400 1.6rem/1.6 Inter,system-ui,sans-serif;color:var(--text)}
+    .container{max-width:var(--maxw);margin:0 auto;padding:0 2rem}
+    header{position:sticky;top:0;background:#fff;border-bottom:1px solid #e8eef6}
+    .nav{display:flex;align-items:center;gap:2rem;min-height:6.4rem}
+    .brand{font-weight:700}
+    .nav a{color:var(--text);text-decoration:none;font-weight:600}
+    .cta{padding:1rem 1.6rem;border-radius:999rem;background:var(--brand);color:#fff;border:0;font-weight:700;cursor:pointer}
+    section{padding:5.6rem 0}
+    .list{background:#fff;border:1px solid #e8eef6;border-radius:var(--radius);box-shadow:var(--shadow);padding:2rem}
+    .list li{margin:.6rem 0}
+    footer{background:#0f1722;color:#c9d7e9;padding:3.2rem 0}
+    footer a{color:#fff}
+  </style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <div class="brand">📄 Документы</div>
+    <nav style="margin-left:auto;display:flex;gap:1.6rem">
+      <a href="index.html#services">Услуги</a>
+      <a href="about.html">О компании</a>
+      <a href="warehouse.html">Склад в Китае</a>
+      <a href="docs.html">Документы</a>
+      <a href="index.html#contacts">Контакты</a>
+    </nav>
+    <button class="cta" onclick="location.href='index.html#calculator'">Рассчитать</button>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <h1 style="margin:0 0 1rem">Перечень документов</h1>
+    <ul class="list">
+      <li>Инвойс (Invoice) — реквизиты, номенклатура, стоимость.</li>
+      <li>Упаковочный лист (PL) — количество мест, вес, объём, размеры.</li>
+      <li>Договор/контракт — поставка/перевозка.</li>
+      <li>Сертификаты соответствия — по коду ТН ВЭД (при необходимости).</li>
+      <li>Доверенность и т.д. — в зависимости от схемы.</li>
+    </ul>
+    <p class="muted">Поможем определить код ТН ВЭД и требования к декларированию.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap">
+    <div>© <span id="y"></span> CargoBridge</div>
+    <a href="index.html#contacts">Связаться</a>
+  </div>
+</footer>
+<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
